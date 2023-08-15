@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 
 
@@ -27,6 +29,12 @@ public class UserService {
         }
         if (emptyUsername(user)){
             throw new UsernameNullException();
+        }
+        if (notValidBirthdate(user)){
+            throw new UserBirthDateInvalidException();
+        }
+        if (emptyCountry(user)){
+            throw new UserCountryNullException();
         }
         if (!isFrenchResident(user)){
             throw new UserCountryException();
@@ -72,6 +80,25 @@ public class UserService {
         }
         return false;
     }
+
+    private boolean emptyCountry(User user){
+        String country = user.getCountry();
+        if(country == null || country.isBlank() || country.isEmpty()){
+            return true;
+        }
+        return false;
+    }
+
+    private boolean notValidBirthdate(User user){
+
+        if(user.getBirthdate() == null){
+            return true;
+        }
+
+        return false;
+    }
+
+
 
     private boolean checkUserName(User user){
         for (User customer : getAllUsers()) {

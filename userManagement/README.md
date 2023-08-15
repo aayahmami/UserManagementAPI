@@ -109,6 +109,7 @@ Message d'exception afficher :
 ```
 Only french resident are allowed to create an account
 ```
+
 ### User not found in the database
 ```
 GET : http://localhost:8080/api/users/66
@@ -128,4 +129,16 @@ RESPONSE: HTTP 400 (BAD_REQUEST)
 Message d'exception afficher :
 ```
 UserName already exist
+```
+
+### User with no required field
+```
+POST : http://localhost:8080/api/users/register
+RESPONSE: HTTP 400 (BAD_REQUEST)
+```
+Message d'exception afficher :
+```
+* "You must put a username"
+* "You must put a country"
+* "You must put a birthdate"
 ```

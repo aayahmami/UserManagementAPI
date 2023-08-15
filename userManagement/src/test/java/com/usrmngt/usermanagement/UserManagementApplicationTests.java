@@ -1,8 +1,6 @@
 package com.usrmngt.usermanagement;
 import com.usrmngt.usermanagement.constants.Constants;
-import com.usrmngt.usermanagement.exceptions.UserAdultException;
-import com.usrmngt.usermanagement.exceptions.UserCountryException;
-import com.usrmngt.usermanagement.exceptions.UsernameNullException;
+import com.usrmngt.usermanagement.exceptions.*;
 import com.usrmngt.usermanagement.model.User;
 import com.usrmngt.usermanagement.service.UserService;
 import org.junit.Assert;
@@ -71,5 +69,34 @@ public class UserManagementApplicationTests {
         Assert.assertThrows(UsernameNullException.class,
                 () -> {userService.registerUser(userTest);});
     }
+
+    @Test
+    public void testRegisterCountryNull() {
+        User userTest = new User();
+        userTest.setUserId(1L);
+        userTest.setUsername("Dupond");
+        userTest.setBirthdate(LocalDate.of(1998, 3, 9));
+        userTest.setCountry(null);
+        userTest.setGender("male");
+        userTest.setPhonenumber("+33695765865");
+
+        Assert.assertThrows(UserCountryNullException.class,
+                () -> {userService.registerUser(userTest);});
+    }
+
+    @Test
+    public void testRegisterBirthdateInvalid() {
+        User userTest = new User();
+        userTest.setUserId(1L);
+        userTest.setUsername("Dupond");
+        userTest.setBirthdate(null);
+        userTest.setCountry("France");
+        userTest.setGender("male");
+        userTest.setPhonenumber("+33695765865");
+
+        Assert.assertThrows(UserBirthDateInvalidException.class,
+                () -> {userService.registerUser(userTest);});
+    }
+
 }
 

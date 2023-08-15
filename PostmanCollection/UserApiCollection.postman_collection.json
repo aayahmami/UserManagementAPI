@@ -148,6 +148,42 @@
 				"url": "http://localhost:8080/api/users/register"
 			},
 			"response": []
+		},
+		{
+			"name": "Register a new user without country",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"Jean\", \n    \"birthdate\": \"2000-01-01\",\n    \"country\": \"\",\n    \"phonenumber\": \"003312345678\",\n    \"gender\": \"Male\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/users/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Register a new user without birthdate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"Jean\", \n    \"country\": \"France\",\n    \"phonenumber\": \"003312345678\",\n    \"gender\": \"Male\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/users/register"
+			},
+			"response": []
 		}
 	]
 }
