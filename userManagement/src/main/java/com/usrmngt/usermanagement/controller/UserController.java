@@ -21,7 +21,7 @@ public class UserController {
     private UserService userService;
 
     /**
-     * user to insert User
+     * Method to insert User in the database
      * @param user, insert inside the database
      * @return ResponseEntity or throw error
      */
@@ -36,7 +36,7 @@ public class UserController {
     }
 
     /**
-     * used to get an user by a given id
+     * Method used to get an user by a given id
      * @param id
      * @return User
      */
@@ -51,9 +51,9 @@ public class UserController {
     }
 
     /**
-     * used to get an user by a given username
+     * Method used to get an user by a given username
      * @param username
-     * @return User
+     * @return User in the normal case, and an error message if something wrong
      */
     @RequestMapping( params = "username")
     public ResponseEntity<User>  getUserDetails(@RequestParam String username){
@@ -65,6 +65,10 @@ public class UserController {
         }
     }
 
+    /**
+     *Method used to get all user stocked in Database
+     * @return the list of all users
+     */
     @GetMapping()
     public ResponseEntity<List<User>> getAll(){
         List<User> userList = userService.getAllUsers();

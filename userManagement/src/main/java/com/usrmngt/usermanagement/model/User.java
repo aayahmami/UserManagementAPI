@@ -10,7 +10,9 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
-
+/**
+ * Class of the main model user with all the input above
+ */
 @Data
 @Entity
 @Table(name = "USERS")
@@ -39,6 +41,14 @@ public class User {
 
     private String gender;
 
+    /**
+     * A simple constructor
+     * @param username username
+     * @param birthdate birthdate
+     * @param country country
+     * @param phonenumber phone number  optional
+     * @param gender gender optional
+     */
     public User(String username,LocalDate birthdate, String country, String phonenumber, String gender) {
         this.username = username;
         this.birthdate = birthdate;

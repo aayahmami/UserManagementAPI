@@ -1,0 +1,7 @@
+com.usrmngt.usermanagement
+com.usrmngt.usermanagement.constants
+com.usrmngt.usermanagement.controller
+com.usrmngt.usermanagement.exceptions
+com.usrmngt.usermanagement.model
+com.usrmngt.usermanagement.repository
+com.usrmngt.usermanagement.service
