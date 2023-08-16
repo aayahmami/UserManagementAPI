@@ -90,11 +90,9 @@ public class UserService {
     }
 
     private boolean notValidBirthdate(User user){
-
-        if(user.getBirthdate() == null){
+        if(user.getBirthdate() == null || user.getBirthdate().isAfter(LocalDate.now())){
             return true;
         }
-
         return false;
     }
 

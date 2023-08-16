@@ -73,7 +73,7 @@ Using this on postman will show you the user with username "Ahmed1" in the datab
 
 ## EXCEPTION
 
-in this API REST, there is 4 kind of exception :
+In this API you find several exception :
 
 ### Not Adult user
 
@@ -88,7 +88,7 @@ POST : http://localhost:8080/api/users/register
 }
 RESPONSE: HTTP 400 (BAD_REQUEST)
 ```
-Message d'exception afficher :
+Exception message display :
 ```
 You need to be an adult to create an account
 ```
@@ -105,7 +105,7 @@ POST : http://localhost:8080/api/users/register
 }
 RESPONSE: HTTP 400 (BAD_REQUEST)
 ```
-Message d'exception afficher :
+Exception message display :
 ```
 Only french resident are allowed to create an account
 ```
@@ -115,7 +115,7 @@ Only french resident are allowed to create an account
 GET : http://localhost:8080/api/users/66
 RESPONSE: HTTP 404 (NOT_FOUND)
 ```
-Message d'exception afficher :
+Exception message display :
 ```
 this user is not found in our database
 ```
@@ -126,7 +126,7 @@ this user is not found in our database
 POST : http://localhost:8080/api/users/register
 RESPONSE: HTTP 400 (BAD_REQUEST)
 ```
-Message d'exception afficher :
+Exception message display :
 ```
 UserName already exist
 ```
@@ -136,9 +136,9 @@ UserName already exist
 POST : http://localhost:8080/api/users/register
 RESPONSE: HTTP 400 (BAD_REQUEST)
 ```
-Message d'exception afficher :
+Exception message display :
 ```
 * "You must put a username"
 * "You must put a country"
-* "You must put a birthdate"
+* "You must put a valid birthdate"
 ```
